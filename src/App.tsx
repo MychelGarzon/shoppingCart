@@ -1,204 +1,230 @@
-import { useEffect, useState } from 'react';
-import headerImage from './assets/images/img/background.jpg';
-import mainProducts from './assets/json/productsInfo.json';
+import {useEffect, useState} from 'react'
+import headerImage from './assets/images/background.jpg'
+import mainProducts from './assets/json/productsInfo.json'
 import Header from "./components/Header/Header";
 import ProductCard from "./components/ProductCard/ProductCard";
 import CartDialog from "./components/CartDialog/cartDialog";
 import DetailDialog from "./components/DetailDialog/DetailDialog";
 import ThanksDialog from "./components/ThanksDialog/ThanksDialog";
-import './App.css';
+import './App.css'
 
 export default function App() {
+  
+  
   const getProductFromCart = (product: ProductInterface): ProductToShowInterface | undefined => {
-    return getProductFrom(product, cartProductsState) as ProductToShowInterface | undefined;
-  };
-
-  const getProductFrom = (product: ProductToShowInterface | ProductInterface, from: (ProductToShowInterface | OnCartProductInterface)[]): undefined | ProductToShowInterface | ProductInterface => {
+    return getProductFrom(product, cartProductsState) as ProductToShowInterface
+  }
+  
+  const getProductFrom = (product: ProductToShowInterface|ProductInterface, from: ProductToShowInterface[]|OnCartProductInterface[]):undefined|ProductToShowInterface|ProductInterface => {
     for (let i = 0; i < from.length; i++) {
       if (product.id === from[i].id) {
-        return from[i];
+        return from[i]
       }
     }
-  };
+  }
+  
+  const [cartProductsState, setCartProductsState]
+    = useState(():OnCartProductInterface[] => [])
+  
 
-  const [cartProductsState, setCartProductsState] = useState<OnCartProductInterface[]>([]);
-
-  const [productsToShow, setProductsToShow] = useState<ProductToShowInterface[]>([]);
-
+  const [productsToShow, setProductsToShow]
+    = useState(():ProductToShowInterface[] => [])
   useEffect(() => {
-    const updatedProductsToShow: ProductToShowInterface[] = mainProducts.map(product => {
-      const productFromCart = getProductFromCart(product);
-      return productFromCart ? productFromCart : product;
-    });
-
-    setProductsToShow(updatedProductsToShow);
+    const p:ProductToShowInterface[] = [...mainProducts]
+    
+    for (const pKey in p) {
+      const productFromCart = getProductFromCart(p[pKey])
+      
+      if (productFromCart) {
+        p[pKey] = productFromCart
+      }
+    }
+    
+    setProductsToShow(p)
   }, [cartProductsState]);
-
-  const [filterWord, setFilterWord] = useState<string>("");
-
-  const [filteredProductsState, setFilteredProductsState] = useState<ProductToShowInterface[]>(productsToShow);
-
+  
+  const [filterWord, setFilterWord] = useState("")
+  
+  const [filteredProductsState, setFilteredProductsState]
+    = useState(productsToShow)
   useEffect(() => {
-    const filteredProducts: ProductToShowInterface[] = [];
-
-    if (!filterWord) setFilteredProductsState(productsToShow);
-
+    const filteredProducts: ProductInterface[] = []
+    
+    if (!filterWord) setFilteredProductsState(productsToShow)
+    
     for (const product of productsToShow) {
-      const reg = new RegExp(filterWord, "i").test(product.name);
-
+      const reg = new RegExp(filterWord, "i").test(product.name)
+      
       if (reg) {
-        filteredProducts.push(product);
+        filteredProducts.push(product)
       }
     }
-
-    setFilteredProductsState(filteredProducts);
+    
+    setFilteredProductsState(filteredProducts)
   }, [productsToShow, filterWord]);
-
-  const [isCartOpenState, setIsCartOpenState] = useState<boolean>(false);
-
-  const [numOfItemsInTheCart, setNumOfItemsInTheCart] = useState<number>(0);
-
+  
+  
+  
+  
+  
+  const [isCartOpenState, setIsCartOpenState]
+    = useState(false)
+  
+  const [numOfItemsInTheCart, setNumOfItemsInTheCart]
+    = useState(0)
   useEffect(() => {
-    let totalProductsInTheCart = 0;
+    let totalProductsInTheCart = 0
 
     for (let i = 0; i < cartProductsState.length; i++) {
-      totalProductsInTheCart += cartProductsState[i].howManyProducts;
+      totalProductsInTheCart += cartProductsState[i].howManyProducts
     }
 
-    setNumOfItemsInTheCart(totalProductsInTheCart);
+    setNumOfItemsInTheCart(totalProductsInTheCart)
   }, [cartProductsState]);
-
-  const [productDetailState, setProductDetailState] = useState<ProductToShowInterface | undefined>(undefined);
-
+  
+  const [productDetailState, setProductDetailState]
+    = useState((): undefined | ProductToShowInterface => undefined)
   useEffect(() => {
-    if (!productDetailState) setProductDetailState(productDetailState);
+    if (!productDetailState) setProductDetailState(productDetailState)
     else {
-      const temporalVariable = getProductFromCart(productDetailState);
-
+      const temporalVariable = getProductFromCart(productDetailState)
+      
       if (temporalVariable)
-        setProductDetailState(temporalVariable);
+        setProductDetailState(temporalVariable)
       else
-        setProductDetailState(getProductFrom(productDetailState, productsToShow));
+        setProductDetailState(getProductFrom(productDetailState, productsToShow))
     }
+    
+    
   }, [cartProductsState, productsToShow]);
-
-  const [isThanksDialogOpenState, setIsThanksDialogOpenState] = useState<string>("");
-
+  
+  const [isThanksDialogOpenState, setIsThanksDialogOpenState] = useState("")
+  
   function handleOnAddProduct(product: ProductToShowInterface) {
-    const productFromCart = getProductFromCart(product) as OnCartProductInterface;
-
-    const cartProductAuxiliarVariable = [...cartProductsState];
-
+    const productFromCart:OnCartProductInterface = getProductFromCart(product) as OnCartProductInterface
+    
+    const cartProductAuxiliarVariable = [...cartProductsState]
+    
     if (productFromCart) {
-      ++productFromCart.howManyProducts;
+      ++productFromCart.howManyProducts
     } else {
-      cartProductAuxiliarVariable.push({ ...product, howManyProducts: 1 });
+      cartProductAuxiliarVariable.push({...product, howManyProducts: 1})
     }
-
-    setCartProductsState(cartProductAuxiliarVariable);
+    
+    setCartProductsState(cartProductAuxiliarVariable)
   }
-
+  
   function handleOnRemoveProduct(product: ProductToShowInterface) {
-    const productFromCart = getProductFromCart(product);
-
-    const cartProductAuxiliarVariable = [...cartProductsState];
-
+    const productFromCart = getProductFromCart(product)
+    
+    const cartProductAuxiliarVariable = [...cartProductsState]
+    
     if (productFromCart) {
       if (productFromCart.howManyProducts! > 1) {
-        --productFromCart.howManyProducts!;
-      } else {
-        cartProductAuxiliarVariable.splice(cartProductAuxiliarVariable.indexOf(productFromCart as OnCartProductInterface), 1);
-      }
+        --productFromCart.howManyProducts!
+        } else {
+          cartProductAuxiliarVariable.splice(cartProductAuxiliarVariable.indexOf(productFromCart as OnCartProductInterface), 1)
+        }
     }
-
-    setCartProductsState(cartProductAuxiliarVariable);
+    
+    setCartProductsState(cartProductAuxiliarVariable)
   }
-
+  
   function handleGiveThanks(name: string) {
-    setIsCartOpenState(false);
-    setIsThanksDialogOpenState(name);
-    setCartProductsState([]);
-    setFilteredProductsState([...filteredProductsState]);
+    setIsCartOpenState(false)
+    setIsThanksDialogOpenState(name)
+    setCartProductsState([])
+    setFilteredProductsState([...filteredProductsState])
   }
-
+  
   return (
+    
     <div className="App">
+      
       <Header
         onOpenCart={() => setIsCartOpenState(true)}
         cartProducts={numOfItemsInTheCart}
         onFilterProducts={setFilterWord}
       />
-
+      
       <div>
         <main>
           <div className='imageHeader'><img alt="imageLogo" src={headerImage}></img></div>
-
+          
           <div>
             <div className={"productsGrid"}>
-              {filteredProductsState.map((product) =>
+              {filteredProductsState.map((product: ProductInterface) =>
                 <ProductCard
                   onAddProduct={handleOnAddProduct}
                   onRemoveProduct={handleOnRemoveProduct}
-                  onDetailClick={(p) => setProductDetailState(p)}
+                  onDetailClick={(p: ProductToShowInterface) => setProductDetailState(p)}
                   productData={product} key={product.id}
                 />)}
             </div>
           </div>
         </main>
       </div>
-
-      {isCartOpenState && (
+      
+      {isCartOpenState ?
         <CartDialog
           cartProducts={cartProductsState}
-          onCloseDialog={() => setIsCartOpenState(false)}
+          onCloseDialog={setIsCartOpenState}
           onRemoveProduct={handleOnRemoveProduct}
           onAddProduct={handleOnAddProduct}
           numOfProducts={numOfItemsInTheCart}
           onPay={handleGiveThanks}
         />
-      )}
-
-      {productDetailState && (
-        <DetailDialog
-          onCloseDialog={() => setProductDetailState(undefined)}
-          productDetail={productDetailState}
-          onAddProduct={handleOnAddProduct}
-          onRemoveProduct={handleOnRemoveProduct}
-        />
-      )}
-
-      {isThanksDialogOpenState && (
-        <ThanksDialog
-          userName={isThanksDialogOpenState}
-          onCloseDialog={() => setIsThanksDialogOpenState("")}
-        />
-      )}
+        :
+        <></>}
+      
+      {
+        productDetailState ?
+          <DetailDialog
+            onCloseDialog={() => setProductDetailState(undefined)}
+            productDetail={productDetailState}
+            
+            onAddProduct={handleOnAddProduct}
+            onRemoveProduct={handleOnRemoveProduct}
+          />
+          :
+          <></>
+      }
+      
+      {
+        isThanksDialogOpenState?
+          <ThanksDialog
+            userName={isThanksDialogOpenState}
+            onCloseDialog={() => setIsThanksDialogOpenState("")}/>
+          :
+          <></>
+      }
     </div>
   );
 }
 
+
 export declare interface ProductInterface {
-  id: number;
-  name: string;
-  src: string;
-  price: number;
-  description: string;
+  id: number,
+  name: string,
+  src: string,
+  price: number,
+  description: string
 }
 
 export declare interface ProductToShowInterface {
-  id: number;
-  name: string;
-  src: string;
-  price: number;
-  description: string;
-  howManyProducts?: number;
+  id: number,
+  name: string,
+  src: string,
+  price: number,
+  description: string,
+  howManyProducts?: number
 }
 
 export declare interface OnCartProductInterface {
-  id: number;
-  name: string;
-  src: string;
-  price: number;
-  description: string;
-  howManyProducts: number;
+  id: number,
+  name: string,
+  src: string,
+  price: number,
+  description: string,
+  howManyProducts: number
 }

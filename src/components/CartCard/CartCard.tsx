@@ -12,7 +12,7 @@ export default function CartCard(props: CartCardPropsInterface) {
 		<>
 			<div className="mine-cart-card">
 				<div className="mine-cart-card-img--container">
-					<img className="mine-cart-card-img" src={`/src/assets/images/products/${props.cartProduct.src}`} />
+					<img className="mine-cart-card-img" src={`/img/jpg/products/${props.cartProduct.src}`} />
 				</div>
 				
 				<div className="mine-cart-card-main">

@@ -2,7 +2,18 @@
   font-family: Nunito;
   src: url('res/fonts/Nunito-VariableFont_wght.ttf');
 }
-
+/*@font-face
+ *  font-family: Nunito
+ *  src: url('res/fonts/NunitoSans-Regular.ttf')
+ *  font-weight: 400 */
+/*@font-face
+ *  font-family: Nunito
+ *  src: url("res/fonts/NunitoSans-Black.ttf")
+ *  font-weight: 700 */
+/*@font-face
+ *  font-family: Nunito
+ *  src: url("res/fonts/NunitoSans-Black.ttf")
+ *  font-weight: 800 */
 :root {
   --sombra-1: rgba(0, 0, 0, 0.2);
   --sombra-2: rgba(0, 0, 0, 0.14);
@@ -170,12 +181,13 @@ html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   height: 100vh;
+  /*overflow-y: scroll*/
   touch-action: manipulation;
   font-family: 'louis george cafe', sans-serif;
   display: block;
   font-size: 16px;
   --blueNavy: #022439;
-  --yellow: #f8bc02;
+  --amarillito: #f8bc02;
   --gray: #707070;
   --primary: #10beca;
   --appBarHeight: 60px;
@@ -257,6 +269,16 @@ a {
   color: inherit;
 }
 
+/*a.a--normal
+ *  color: var(--md-sys-color-secondary)
+ *  text-decoration: underline */
+/*a.a--normal:hover
+ *  color: var(--md-sys-color-tertiary) */
+/*body
+ *  -moz-osx-font-smoothing: grayscale
+ *  -webkit-font-smoothing: antialiased
+ *  background-color: var(--color-background-background)
+ *  display: block */
 body div[id='contenedor_principal'] ~ div {
   display: none;
 }
@@ -302,6 +324,7 @@ input {
   padding: calc(2rem + var(--appBarHeight)) 4rem 2rem;
 }
 
+/*padding-top: var(--appBarHeight)*/
 .imageHeader {
   overflow: hidden;
   width: 100%;
@@ -338,3 +361,5 @@ input {
     grid-template-columns: 1fr;
   }
 }
+
+/*# sourceMappingURL=App.css.map */

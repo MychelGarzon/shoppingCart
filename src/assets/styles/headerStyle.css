@@ -85,10 +85,12 @@ header .kartIcon .notchInvisibleContainer > div {
   position: relative;
   left: -8px;
   top: -8px;
-  background-color: var(--yellow);
+  background-color: var(--amarillito);
 }
 header .kartIcon .notchInvisibleContainer > div > span {
   font-family: Nunito;
   font-size: 10px;
   font-weight: 700;
 }
+
+/*# sourceMappingURL=style.css.map */
