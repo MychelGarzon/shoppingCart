@@ -1,12 +1,12 @@
-import "./style.css"
+import "./buttonToCartStyle.css"
 
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 import {
 	cartShopping_classic_regular,
 	circleMinus_classic_regular,
 	circlePlus_classic_regular
 } from "../../fragments/icons";
-import Button from "../Button";
+import Button from "../Button/Button";
 import {ProductToShowInterface} from "../../App";
 
 export default function ButtonToCart(props: ButtonToCartPropsInterface) {

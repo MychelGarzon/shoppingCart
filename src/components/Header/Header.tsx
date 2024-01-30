@@ -1,7 +1,7 @@
 import {MouseEventHandler} from 'react'
-import './style.css'
+import './headerStyle.css'
 import logo from './../../assets/images/img/svg/logo.svg'
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 import {cartShopping_classic_regular, magnifyingGlass_classic_regular} from "../../fragments/icons";
 
 export default function Header(props: HeaderPropsInterface) {

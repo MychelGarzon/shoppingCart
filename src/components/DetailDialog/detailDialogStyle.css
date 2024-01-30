@@ -50,10 +50,8 @@
 .mine-detail-dialog-price {
   font-size: 50px;
   font-weight: 700;
-  font-family: Nunito, "louis george cafe";
+  font-family: Nunito, 'louis george cafe';
 }
 .mine-detail-dialog-price::after {
-  content: " €";
+  content: ' €';
 }
-
-/*# sourceMappingURL=style.css.map */

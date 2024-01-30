@@ -1,6 +1,6 @@
-import "./style.css"
+import "./cartCardStyle.css"
 import {OnCartProductInterface} from "../../App";
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 import {circleMinus_classic_regular, circlePlus_classic_regular} from "../../fragments/icons";
 import {useState} from "react";
 

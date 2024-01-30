@@ -1,11 +1,11 @@
 import {useEffect, useState} from 'react'
 import headerImage from './assets/images/background.jpg'
 import mainProducts from './assets/json/productsInfo.json'
-import Header from "./components/Header";
-import ProductCard from "./components/ProductCard";
-import CartDialog from "./components/CartDialog";
-import DetailDialog from "./components/DetailDialog";
-import ThanksDialog from "./components/ThanksDialog";
+import Header from "./components/Header/Header";
+import ProductCard from "./components/ProductCard/ProductCard";
+import CartDialog from "./components/CartDialog/cartDialog";
+import DetailDialog from "./components/DetailDialog/DetailDialog";
+import ThanksDialog from "./components/ThanksDialog/ThanksDialog";
 import './App.css'
 
 export default function App() {

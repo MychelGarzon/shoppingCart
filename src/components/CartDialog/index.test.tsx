@@ -1,5 +1,5 @@
 import { fireEvent, render, waitFor} from "@testing-library/react";
-import CartDialog from "./index";
+import CartDialog from "./cartDialog";
 import {OnCartProductInterface} from "../../App";
 import {expect, test} from "vitest";
 

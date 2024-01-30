@@ -1,7 +1,7 @@
-import "./style.css"
+import "./thanksDialogStyle.css"
 
 import {xMark_classic_regular} from "../../fragments/icons";
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 
 import backImage from "./../../assets/images/img/svg/groupOfPersons.svg"
 

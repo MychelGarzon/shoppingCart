@@ -1,6 +1,6 @@
-import "./style.css"
+import "./productCardStyle.css"
 import type {ProductToShowInterface} from "../../App";
-import ButtonToCart from "../ButtonToCart";
+import ButtonToCart from "../ButtonToCart/ButtonToCart";
 
 
 export default function ProductCard(props: ProductCardPropsInterface) {

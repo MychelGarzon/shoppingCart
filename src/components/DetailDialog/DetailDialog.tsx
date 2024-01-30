@@ -1,10 +1,10 @@
-import "./style.css"
-import Icon from "../Icon";
+import "./detailDialogStyle.css"
+import Icon from "../Icon/Icon";
 import {
 	xMark_classic_regular
 } from "../../fragments/icons";
 import {ProductInterface, ProductToShowInterface} from "../../App";
-import ButtonToCart from "../ButtonToCart";
+import ButtonToCart from "../ButtonToCart/ButtonToCart";
 
 export default function DetailDialog(props: CartDialogPropsInterface) {
 	return (

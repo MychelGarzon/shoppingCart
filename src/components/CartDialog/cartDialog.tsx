@@ -1,10 +1,10 @@
-import "./style.css"
+import "./cartDialogStyle.css"
 import {useEffect, useState} from "react";
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 import {xMark_classic_regular} from "../../fragments/icons";
 import {OnCartProductInterface, ProductInterface} from "../../App";
-import CartCard from "../CartCard";
-import Button from "../Button";
+import CartCard from "../CartCard/CartCard";
+import Button from "../Button/Button";
 
 export default function CartDialog(
 	{

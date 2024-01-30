@@ -1,6 +1,6 @@
-import React, { CSSProperties, JSX, MouseEventHandler, ReactElement } from "react";
-import "./style.css";
-import Icon from "../Icon";
+import { CSSProperties, JSX, MouseEventHandler, ReactElement } from "react";
+import "./buttonStyle.css";
+import Icon from "../Icon/Icon";
 
 export default function Button(props: ButtonPropsInterface) {
   const {
