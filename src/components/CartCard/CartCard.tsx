@@ -1,4 +1,4 @@
-import "./cartCardStyle.css"
+import "../../assets/styles/cartCardStyle.css"
 import {OnCartProductInterface} from "../../App";
 import Icon from "../Icon/Icon";
 import {circleMinus_classic_regular, circlePlus_classic_regular} from "../../fragments/icons";

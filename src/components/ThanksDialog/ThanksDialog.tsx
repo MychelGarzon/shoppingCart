@@ -1,4 +1,4 @@
-import "./thanksDialogStyle.css"
+import "../../assets/styles/thanksDialogStyle.css"
 
 import {xMark_classic_regular} from "../../fragments/icons";
 import Icon from "../Icon/Icon";

@@ -1,4 +1,4 @@
-import "./productCardStyle.css"
+import "../../assets/styles/productCardStyle.css"
 import type {ProductToShowInterface} from "../../App";
 import ButtonToCart from "../ButtonToCart/ButtonToCart";
 

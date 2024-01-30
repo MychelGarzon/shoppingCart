@@ -1,4 +1,4 @@
-import "./detailDialogStyle.css"
+import "../../assets/styles/detailDialogStyle.css"
 import Icon from "../Icon/Icon";
 import {
 	xMark_classic_regular

@@ -1,4 +1,4 @@
-import "./buttonToCartStyle.css"
+import "../../assets/styles/buttonToCartStyle.css"
 
 import Icon from "../Icon/Icon";
 import {

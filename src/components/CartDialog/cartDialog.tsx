@@ -1,4 +1,4 @@
-import "./cartDialogStyle.css"
+import "../../assets/styles/cartDialogStyle.css"
 import {useEffect, useState} from "react";
 import Icon from "../Icon/Icon";
 import {xMark_classic_regular} from "../../fragments/icons";

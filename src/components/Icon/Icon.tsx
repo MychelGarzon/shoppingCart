@@ -1,4 +1,4 @@
-import './iconStyle.css'
+import '../../assets/styles/iconStyle.css'
 import {CSSProperties, JSX, MouseEventHandler} from "react";
 
 export default function Icon(props: IconPropsInterface) {
