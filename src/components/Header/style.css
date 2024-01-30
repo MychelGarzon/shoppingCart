@@ -34,7 +34,7 @@ header .searchInput {
 header .searchInput > div {
   height: 28px;
   border-radius: 14px;
-  border: solid var(--azulito) 3px;
+  border: solid var(--blueNavy) 3px;
   width: 162px;
   display: flex;
   align-items: center;

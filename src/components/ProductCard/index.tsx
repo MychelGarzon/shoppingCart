@@ -4,7 +4,6 @@ import ButtonToCart from "../ButtonToCart";
 
 
 export default function ProductCard(props: ProductCardPropsInterface) {
-	// let [numProductState, setNumProductState] = useState(0)
 	
 	const handleOnButtonClick = () => {
 		props.onAddProduct(props.productData)
@@ -17,7 +16,7 @@ export default function ProductCard(props: ProductCardPropsInterface) {
 	return (
 		<div className="mine-card">
 			<div className="mine-card-img--container">
-				<img src={`/img/jpg/products/${props.productData.src}`}/>
+				<img src={`/src//assets/images/products/${props.productData.src}`}/>
 			</div>
 			
 			<div className={"mine-card-main"}>
@@ -29,7 +28,7 @@ export default function ProductCard(props: ProductCardPropsInterface) {
 					<p
 						onClick={() => props.onDetailClick(props.productData)}
 						className={"mine-card-description"}>
-						Detalle...
+						details...
 					</p>
 				</div>
 				

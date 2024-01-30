@@ -2,7 +2,6 @@ import './style.css'
 import {CSSProperties, JSX, MouseEventHandler} from "react";
 
 export default function Icon(props: IconPropsInterface) {
-	// console.log(props)
 	return (
 		<i
 			onClick={props.onClick}

@@ -21,9 +21,8 @@
   font-family: Nunito;
   font-weight: 900;
 }
-.mine-button-prepIcon, .mine-button-postIcon {
+.mine-button-prepIcon,
+.mine-button-postIcon {
   color: currentColor;
   height: 50%;
 }
-
-/*# sourceMappingURL=style.css.map */

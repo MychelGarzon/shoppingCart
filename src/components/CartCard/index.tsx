@@ -29,16 +29,16 @@ export default function CartCard(props: CartCardPropsInterface) {
 					</div>
 					
 					<div className="mine-cart-card-main--right">
-						<div className="mine-cart-card-howmuch">
-							<span className="mine-cart-card-howmuch--title">Cantidad:</span>
+						<div className="mine-cart-card-howManyProducts">
+							<span className="mine-cart-card-howManyProducts--title">Quantity</span>
 							
-							<div className="mine-cart-card-howmuch--counter">
+							<div className="mine-cart-card-howManyProducts--counter">
 								<Icon
 									icon={circleMinus_classic_regular}
 									onClick={() => setNumProductsState(props.onRemoveFromCart(props.cartProduct))}
 								/>
 								
-								<span className="mine-cart-card-howmuch--count">{props.cartProduct.howMuch}</span>
+								<span className="mine-cart-card-howManyProducts--count">{props.cartProduct.howManyProducts}</span>
 								
 								<Icon
 									icon={circlePlus_classic_regular}
@@ -50,7 +50,7 @@ export default function CartCard(props: CartCardPropsInterface) {
 						<div className="mine-cart-card-total">
 							<span className="mine-cart-card-total--title">Total:</span>
 							
-							<span className="mine-cart-card-total--price">{(props.cartProduct.howMuch*props.cartProduct.price)+""}</span>
+							<span className="mine-cart-card-total--price">{(props.cartProduct.howManyProducts*props.cartProduct.price)+""}</span>
 						</div>
 					</div>
 				</div>

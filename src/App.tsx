@@ -1,12 +1,11 @@
 import {useEffect, useState} from 'react'
-import headerImage from './assets/img/jpg/pexels-vanessa-loring-5965951.jpg'
+import headerImage from './assets/images/background.jpg'
 import mainProducts from './assets/json/productsInfo.json'
 import Header from "./components/Header";
 import ProductCard from "./components/ProductCard";
 import CartDialog from "./components/CartDialog";
 import DetailDialog from "./components/DetailDialog";
 import ThanksDialog from "./components/ThanksDialog";
-
 import './App.css'
 
 export default function App() {
@@ -24,13 +23,10 @@ export default function App() {
     }
   }
   
-  // Este estado va a contener todos los elementos que se van a mostrar especificamente en el carro
   const [cartProductsState, setCartProductsState]
     = useState(():OnCartProductInterface[] => [])
   
-  // Este estado va a contener todos los elementos en un formato o mezcla especial que se van a mostrar en pantalla
-  // Toma elementos del carro y de los elementos raiz
-  // Se actualiza cuando el carro se actualiza
+
   const [productsToShow, setProductsToShow]
     = useState(():ProductToShowInterface[] => [])
   useEffect(() => {
@@ -80,7 +76,7 @@ export default function App() {
     let totalProductsInTheCart = 0
 
     for (let i = 0; i < cartProductsState.length; i++) {
-      totalProductsInTheCart += cartProductsState[i].howMuch
+      totalProductsInTheCart += cartProductsState[i].howManyProducts
     }
 
     setNumOfItemsInTheCart(totalProductsInTheCart)
@@ -110,9 +106,9 @@ export default function App() {
     const cartProductAuxiliarVariable = [...cartProductsState]
     
     if (productFromCart) {
-      ++productFromCart.howMuch
+      ++productFromCart.howManyProducts
     } else {
-      cartProductAuxiliarVariable.push({...product, howMuch: 1})
+      cartProductAuxiliarVariable.push({...product, howManyProducts: 1})
     }
     
     setCartProductsState(cartProductAuxiliarVariable)
@@ -124,8 +120,8 @@ export default function App() {
     const cartProductAuxiliarVariable = [...cartProductsState]
     
     if (productFromCart) {
-      if (productFromCart.howMuch! > 1) {
-        --productFromCart.howMuch!
+      if (productFromCart.howManyProducts! > 1) {
+        --productFromCart.howManyProducts!
         } else {
           cartProductAuxiliarVariable.splice(cartProductAuxiliarVariable.indexOf(productFromCart as OnCartProductInterface), 1)
         }
@@ -153,7 +149,7 @@ export default function App() {
       
       <div>
         <main>
-          <div className='imagenEncabezado'><img alt="imagen de logo" src={headerImage}></img></div>
+          <div className='imageHeader'><img alt="imageLogo" src={headerImage}></img></div>
           
           <div>
             <div className={"productsGrid"}>
@@ -221,7 +217,7 @@ export declare interface ProductToShowInterface {
   src: string,
   price: number,
   description: string,
-  howMuch?: number
+  howManyProducts?: number
 }
 
 export declare interface OnCartProductInterface {
@@ -230,5 +226,5 @@ export declare interface OnCartProductInterface {
   src: string,
   price: number,
   description: string,
-  howMuch: number
+  howManyProducts: number
 }

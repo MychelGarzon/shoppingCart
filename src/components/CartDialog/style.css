@@ -21,7 +21,7 @@
   position: absolute;
 }
 .mine-cart-dialog-title {
-  flood-color: var(--azulito);
+  flood-color: var(--blueNavy);
   font-weight: 900;
   font-size: 84px;
   text-align: center;
@@ -52,48 +52,64 @@
   top: 12px;
   cursor: pointer;
 }
-.mine-cart-dialog .section > p, .mine-cart-dialog .section > label {
+.mine-cart-dialog .section > p,
+.mine-cart-dialog .section > label {
   text-align: end;
 }
 .mine-cart-dialog .section > hr {
   width: 100%;
 }
-.mine-cart-dialog-sending-data, .mine-cart-dialog-sending-calc {
+.mine-cart-dialog-sending-data,
+.mine-cart-dialog-sending-calc {
   display: flex;
   flex-direction: column;
 }
-.mine-cart-dialog-sending-data-title--container, .mine-cart-dialog-sending-calc-title--container {
+.mine-cart-dialog-sending-data-title--container,
+.mine-cart-dialog-sending-calc-title--container {
   display: flex;
   justify-content: space-between;
 }
-.mine-cart-dialog-sending-data-title--buttons, .mine-cart-dialog-sending-calc-title--buttons {
+.mine-cart-dialog-sending-data-title--buttons,
+.mine-cart-dialog-sending-calc-title--buttons {
   display: flex;
   column-gap: 1rem;
 }
-.mine-cart-dialog-sending-data-title--buttons .mine-button, .mine-cart-dialog-sending-calc-title--buttons .mine-button {
+.mine-cart-dialog-sending-data-title--buttons .mine-button,
+.mine-cart-dialog-sending-calc-title--buttons .mine-button {
   background-color: var(--primary);
   color: white;
 }
-.mine-cart-dialog-sending-data-body, .mine-cart-dialog-sending-calc-body {
+.mine-cart-dialog-sending-data-body,
+.mine-cart-dialog-sending-calc-body {
   align-self: end;
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 0.2rem;
   row-gap: 0.2rem;
 }
-.mine-cart-dialog-sending-data-body--left, .mine-cart-dialog-sending-calc-body--left {
+.mine-cart-dialog-sending-data-body--left,
+.mine-cart-dialog-sending-calc-body--left {
   text-align: end;
 }
-.mine-cart-dialog-sending-data-body input, .mine-cart-dialog-sending-data-body--right, .mine-cart-dialog-sending-calc-body input, .mine-cart-dialog-sending-calc-body--right {
+.mine-cart-dialog-sending-data-body input,
+.mine-cart-dialog-sending-data-body--right,
+.mine-cart-dialog-sending-calc-body input,
+.mine-cart-dialog-sending-calc-body--right {
   font-family: Nunito;
   font-weight: 700;
 }
-.mine-cart-dialog-sending-data-body input.distance, .mine-cart-dialog-sending-data-body--right.distance, .mine-cart-dialog-sending-calc-body input.distance, .mine-cart-dialog-sending-calc-body--right.distance {
+.mine-cart-dialog-sending-data-body input.distance,
+.mine-cart-dialog-sending-data-body--right.distance,
+.mine-cart-dialog-sending-calc-body input.distance,
+.mine-cart-dialog-sending-calc-body--right.distance {
   position: relative;
   display: inline-block;
 }
-.mine-cart-dialog-sending-data-body input.distance::after, .mine-cart-dialog-sending-data-body--right.distance::after, .mine-cart-dialog-sending-calc-body input.distance::after, .mine-cart-dialog-sending-calc-body--right.distance::after {
-  content: " m";
+.mine-cart-dialog-sending-data-body input.distance::after,
+.mine-cart-dialog-sending-data-body--right.distance::after,
+.mine-cart-dialog-sending-calc-body input.distance::after,
+.mine-cart-dialog-sending-calc-body--right.distance::after {
+  content: ' m';
   position: absolute;
   top: 50%;
   right: 8px;
@@ -101,11 +117,13 @@
   font-size: 1.2em;
   color: #333;
 }
-.mine-cart-dialog-sending-data-body .price::after, .mine-cart-dialog-sending-calc-body .price::after {
-  content: " €";
+.mine-cart-dialog-sending-data-body .price::after,
+.mine-cart-dialog-sending-calc-body .price::after {
+  content: ' €';
 }
-.mine-cart-dialog-sending-data-body .descuento::before, .mine-cart-dialog-sending-calc-body .descuento::before {
-  content: "-";
+.mine-cart-dialog-sending-data-body .descuento::before,
+.mine-cart-dialog-sending-calc-body .descuento::before {
+  content: '-';
 }
 .mine-cart-dialog-totals {
   display: flex;

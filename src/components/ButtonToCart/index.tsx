@@ -22,11 +22,11 @@ export default function ButtonToCart(props: ButtonToCartPropsInterface) {
 	return (
 		<>
 			{
-				props.productData?.howMuch ?
+				props.productData?.howManyProducts ?
 					<Button
 						className="mine-buttonToCart"
 						style={{
-							border: "2px solid var(--azulito)"
+							border: "2px solid var(--blueNavy)"
 						}}
 					>
 						<Icon
@@ -34,7 +34,7 @@ export default function ButtonToCart(props: ButtonToCartPropsInterface) {
 							onClick={removeFromCart}
 						/>
 						
-						<span> {props.productData.howMuch} </span>
+						<span> {props.productData.howManyProducts} </span>
 						
 						<Icon
 							icon={circlePlus_classic_regular}
@@ -44,8 +44,8 @@ export default function ButtonToCart(props: ButtonToCartPropsInterface) {
 					:
 					<Button
 						postIcon={cartShopping_classic_regular}
-						text={"AGREGAR"}
-						style={{backgroundColor: "var(--azulito)", color: "white"}}
+						text={"ADD"}
+						style={{backgroundColor: "var(--blueNavy)", color: "white"}}
 						onClick={addToCart}
 					/>
 			}

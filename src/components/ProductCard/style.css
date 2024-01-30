@@ -15,7 +15,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  /* Establece la relación de aspecto deseada (16:9 en este caso) */
   padding-top: 100%;
   box-shadow: var(--md-sys-elevation-1);
 }
@@ -48,8 +47,6 @@
   font-weight: 700;
   font-size: 24px;
 }
-.mine-card-price::before {
-  content: " €";
+.mine-card-price::after {
+  content: ' €';
 }
-
-/*# sourceMappingURL=style.css.map */

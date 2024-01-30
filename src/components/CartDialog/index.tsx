@@ -8,65 +8,65 @@ import Button from "../Button";
 
 export default function CartDialog(
 	{
-		numOfProducts,
+		numOfProducts: numberOfProducts,
 		cartProducts,
 		onRemoveProduct,
 		onCloseDialog,
 		onAddProduct,
 		onPay
 	}:CartDialogPropsInterface) {
-	const [userNameState, setUserNameState] = useState("Juan Laserna")
+	const [userNameState, setUserNameState] = useState("Type your name")
 	const [distanceState, setDistanceState] = useState(0)
 	const [datetimeState, setDatetimeState] = useState(():Date|undefined => {return ;})
 	
-	const [isHoraPuntaState, setIsHoraPuntaState] = useState(():boolean|undefined => {return })
+	const [orderingTime, setorderingTime] = useState(():boolean|undefined => {return })
 	useEffect(() => {
-		if (datetimeState === undefined) {setIsHoraPuntaState(undefined); return }
+		if (datetimeState === undefined) {setorderingTime(undefined); return }
 		
-		const isItFriday = datetimeState.toLocaleDateString("es-es",{weekday: "long"}) === "viernes"
+		const isItFriday = datetimeState.toLocaleDateString("en-en",{weekday: "long"}) === "friday"
 		const isOnTime = datetimeState.getHours() >= 15 && datetimeState.getHours() < 19
 		
-		setIsHoraPuntaState(isItFriday && isOnTime)
+		setorderingTime(isItFriday && isOnTime)
 	}, [datetimeState]);
 	
 	const [totalProductsState, setTotalProductsState] = useState(0)
 	useEffect(() => {
-		let totalProductos = 0
+		let totalProducts = 0
 		
 		for (const item of cartProducts) {
-			totalProductos += item.howMuch*item.price
+			totalProducts += item.howManyProducts*item.price
 		}
 		
-		setTotalProductsState(totalProductos)
-	}, [numOfProducts]);
+		setTotalProductsState(totalProducts)
+	}, [numberOfProducts]);
 	
-	const [recargoPorDistanciaState, setRecargoPorDistanciaState] = useState(0)
+	const [deliveryDistanceState, setdeliveryDistanceState] = useState(0)
 	useEffect(() => {
-		let recargoDistancia = distanceState?2:0
-		let distancia = distanceState - 1000
+		let extraChargeDistance = distanceState?2:0
+		let distance = distanceState - 1000
 		
-		while (distancia > 0) {
-			distancia -= 500
-			recargoDistancia += 1
+		while (distance > 0) {
+			distance -= 500
+			extraChargeDistance += 1
 		}
 		
-		setRecargoPorDistanciaState(recargoDistancia)
+		setdeliveryDistanceState(extraChargeDistance)
 	}, [distanceState]);
 	
-	const [recargoPorNumeroDeProductos, setRecargoPorNumeroDeProductos] = useState(0)
+	const [extraChargeNumberOfItems, setextraChargeNumberOfItems] = useState(0)
 	useEffect(() => {
-		setRecargoPorNumeroDeProductos(((numOfProducts - 4) * 0.5 < 0) ? 0 : ((numOfProducts - 4) * 0.5) + ((numOfProducts > 12)? 1.2 : 0))
-	}, [numOfProducts]);
+		setextraChargeNumberOfItems(((numberOfProducts - 4) * 0.5 < 0) ? 0 : ((numberOfProducts - 4) * 0.5) + ((numberOfProducts > 12)? 1.2 : 0))
+	}, [numberOfProducts]);
 	
-	const [recargoPorHoraPunta, setRecargoPorHoraPunta] = useState(0)
+	const [extraChargeTimeDelivery, setRecargoPorHoraPunta] = useState(0)
 	useEffect(() => {
-		setRecargoPorHoraPunta((isHoraPuntaState?((recargoPorDistanciaState+recargoPorNumeroDeProductos)*0.2):0))
-	}, [recargoPorDistanciaState, recargoPorNumeroDeProductos]);
+		setRecargoPorHoraPunta((orderingTime?((deliveryDistanceState+extraChargeNumberOfItems)*0.2):0))
+	}, [deliveryDistanceState, extraChargeNumberOfItems]);
 	
 	const [preSendingPriceState, setPreSendingPriceState] = useState(0)
 	useEffect(() => {
-		setPreSendingPriceState(recargoPorDistanciaState+recargoPorNumeroDeProductos+recargoPorHoraPunta)
-	}, [recargoPorDistanciaState, recargoPorNumeroDeProductos, recargoPorHoraPunta]);
+		setPreSendingPriceState(deliveryDistanceState+extraChargeNumberOfItems+extraChargeTimeDelivery)
+	}, [deliveryDistanceState, extraChargeNumberOfItems, extraChargeTimeDelivery]);
 	
 	const [isOverSendingPriceState, setIsOverSendingPriceState] = useState(false)
 	useEffect(() => {
@@ -126,7 +126,7 @@ export default function CartDialog(
 			className="mine-cart-dialog">
 			
 			<div className="mine-cart-dialog--container">
-				<h1 className="mine-cart-dialog-title">CARRITO</h1>
+				<h1 className="mine-cart-dialog-title">Shopping Cart</h1>
 				
 				<Icon
 					icon={xMark_classic_regular}
@@ -149,22 +149,17 @@ export default function CartDialog(
 					<div className="mine-cart-dialog-main--right">
 						<div className="mine-cart-dialog-sending-data section">
 							<div className="mine-cart-dialog-sending-data-title--container">
-								<h2>Datos de envío</h2>
+								<h2>Ordering details</h2>
 								
 								<div className="mine-cart-dialog-sending-data-title--buttons">
-									{/*{
-										isSendingDataState ?
-											<Button text="EDITAR" style={{}} prepIcon={pencil_classic_regular}/>
-											:
-											<Button text="AGREGAR" style={{}} prepIcon={plus_classic_regular}/>
-									}*/}
+								
 								</div>
 							</div>
 							
 							<hr/>
 							
 							<div className="mine-cart-dialog-sending-data-body">
-								<p className="mine-cart-dialog-sending-data-body--left">Nombre:</p>
+								<p className="mine-cart-dialog-sending-data-body--left">Name: </p>
 								<input
 									data-testid="userNameInput"
 									type={"text"}
@@ -173,7 +168,7 @@ export default function CartDialog(
 									placeholder={userNameState}
 								/>
 								
-								<p className="mine-cart-dialog-sending-data-body--left">Distancia (m):</p>
+								<p className="mine-cart-dialog-sending-data-body--left">Distance (m):</p>
 								<input
 									data-testid="distanceInput"
 									className="distance"
@@ -183,7 +178,7 @@ export default function CartDialog(
 									placeholder="0"
 								/>
 								
-								<p className="mine-cart-dialog-sending-data-body--left">Fecha y hora:</p>
+								<p className="mine-cart-dialog-sending-data-body--left">Date and Hour of Delivery: </p>
 								<input
 									data-testid="datetimeInput"
 									type={"datetime-local"}
@@ -194,34 +189,34 @@ export default function CartDialog(
 								/>
 								
 								<p
-									className="mine-cart-dialog-sending-data-body--left">Número de productos:
+									className="mine-cart-dialog-sending-data-body--left">Number of Products: 
 								</p>
 								<p
 									data-testid="numOfProducts"
 									className="mine-cart-dialog-sending-data-body--right"
-								>{numOfProducts}</p>
+								>{numberOfProducts}</p>
 							</div>
 						
 						</div>
 						
 						<div className="mine-cart-dialog-sending-calc section">
 							<div className="mine-cart-dialog-sending-calc-title--container">
-								<h2>Envío</h2>
+								<h2>Delivery</h2>
 							</div>
 							
 							<hr/>
 							
 							<div className="mine-cart-dialog-sending-calc-body">
-								<p className="mine-cart-dialog-sending-calc-body--left">Recargo por distancia:</p>
-								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="distanceSurcharge">{recargoPorDistanciaState}</p>
+								<p className="mine-cart-dialog-sending-calc-body--left">Extra-cost distance:</p>
+								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="distanceSurcharge">{deliveryDistanceState}</p>
 								
-								<p className="mine-cart-dialog-sending-calc-body--left">Recargo por número de productos:</p>
-								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="numOfItemsSurcharge">{recargoPorNumeroDeProductos}</p>
+								<p className="mine-cart-dialog-sending-calc-body--left">Extra-cost number of items:</p>
+								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="numOfItemsSurcharge">{extraChargeNumberOfItems}</p>
 								
-								<p className="mine-cart-dialog-sending-calc-body--left">Recargo por hora punta:</p>
+								<p className="mine-cart-dialog-sending-calc-body--left">Extra-cost time of delivery:</p>
 								{
-										isHoraPuntaState?
-										<p className="price mine-cart-dialog-sending-calc-body--right">{recargoPorHoraPunta}</p>
+										orderingTime?
+										<p className="price mine-cart-dialog-sending-calc-body--right">{extraChargeTimeDelivery}</p>
 											:
 												<p className="price mine-cart-dialog-sending-calc-body--right">0</p>
 								}
@@ -229,7 +224,7 @@ export default function CartDialog(
 								{
 									isOverSendingPriceState ?
 										<>
-											<p className="mine-cart-dialog-sending-calc-body--left">descuento por sobrecosto:</p>
+											<p className="mine-cart-dialog-sending-calc-body--left">Discount:</p>
 											<p className="descuento price mine-cart-dialog-sending-calc-body--right">{overCostDiscountState}</p>
 										</>
 										:
@@ -238,8 +233,7 @@ export default function CartDialog(
 								
 								{
 									productsPriceDiscountState?
-										<><p className="mine-cart-dialog-sending-calc-body--left">Descuento por valor de la compra mayor a
-											200 €:</p>
+										<><p className="mine-cart-dialog-sending-calc-body--left">Discount if the cost is over 200 €:</p>
 											<p className="descuento price mine-cart-dialog-sending-calc-body--right">{productsPriceDiscountState}</p></>
 										:
 										<></>
@@ -248,9 +242,9 @@ export default function CartDialog(
 						</div>
 						
 						<div className="mine-cart-dialog-totals">
-							<p>Valor de los productos: <span data-testid="cartPriceSpan">{totalProductsState}</span></p>
+							<p>Cost of the products: <span data-testid="cartPriceSpan">{totalProductsState}</span></p>
 							
-							<p>Valor del envío: <span data-testid="sendingPrice">{
+							<p>Delivery costs: <span data-testid="sendingPrice">{
 								sendingPriceState-productsPriceDiscountState
 							}</span></p>
 							
@@ -258,17 +252,17 @@ export default function CartDialog(
 							
 							<div  className="mine-cart-dialog-totals-buttons">
 								<Button
-									text="SEGUIR COMPRANDO"
+									text="Continue Shopping"
 									style={{border: "2px solid var(--primary)", color: "var(--primary)"}}
 									onClick={() => onCloseDialog(false)}
 								/>
 								
 								<Button
 									className="pay"
-									text="PAGAR"
+									text="Pay"
 									style={{backgroundColor: "var(--primary)", color: "white"}}
 									onClick={() => onPay(userNameState)}
-									disabled={numOfProducts<1}
+									disabled={numberOfProducts<1}
 								/>
 							</div>
 						</div>

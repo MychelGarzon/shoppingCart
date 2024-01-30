@@ -1,23 +1,18 @@
 import {MouseEventHandler} from 'react'
 import './style.css'
-import logo from './../../assets/img/svg/logo tienda virtual.svg'
+import logo from './../../assets/images/img/svg/logo.svg'
 import Icon from "../Icon";
 import {cartShopping_classic_regular, magnifyingGlass_classic_regular} from "../../fragments/icons";
 
 export default function Header(props: HeaderPropsInterface) {
-	// const {onFilterProducts} = props
-	/*const [filterInputState, setFilterInputState] = useState("")
-	useEffect(() => {
-		onFilterProducts(filterInputState)
-	}, [filterInputState]);*/
-	
+
 	return (
 		<header className='mdc-elevation--z4'>
 			<div>
 				<div className='logo'>
 					<img
 						src={logo}
-						alt="Logo de la tienda virtual"/>
+						alt="Logo store"/>
 					<span>eSHOP</span>
 				</div>
 				
@@ -35,7 +30,7 @@ export default function Header(props: HeaderPropsInterface) {
 						onClick={() => props.onOpenCart(true)}>
 						
 						<Icon
-							color={"var(--azulito)"}
+							color={"var(--blueNavy)"}
 							icon={cartShopping_classic_regular}
 							className={""}
 							style={{height: "24px"}}/>

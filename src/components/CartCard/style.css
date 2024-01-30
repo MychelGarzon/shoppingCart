@@ -25,7 +25,8 @@
   display: flex;
   justify-content: space-between;
 }
-.mine-cart-card-main--left, .mine-cart-card-main--right {
+.mine-cart-card-main--left,
+.mine-cart-card-main--right {
   display: flex;
   flex-direction: column;
 }
@@ -33,7 +34,7 @@
   flex-grow: 1;
 }
 .mine-cart-card-title {
-  color: var(--azulito);
+  color: var(--blueNavy);
 }
 .mine-cart-card-description {
   color: var(--gray);
@@ -47,42 +48,49 @@
   color: var(--gray);
 }
 .mine-cart-card-price::after {
-  content: " €";
+  content: ' €';
 }
-.mine-cart-card-howmuch, .mine-cart-card-total {
+.mine-cart-card-howManyProducts,
+.mine-cart-card-total {
   display: flex;
   column-gap: 1rem;
   align-items: center;
   justify-content: end;
 }
-.mine-cart-card-howmuch--counter, .mine-cart-card-total--counter {
+.mine-cart-card-howManyProducts--counter,
+.mine-cart-card-total--counter {
   display: flex;
   column-gap: 0.5rem;
 }
-.mine-cart-card-howmuch--count, .mine-cart-card-total--count {
+.mine-cart-card-howManyProducts--count,
+.mine-cart-card-total--count {
   font-family: Nunito;
   font-weight: 700;
   font-size: 20px;
 }
-.mine-cart-card-howmuch--title, .mine-cart-card-total--title {
+.mine-cart-card-howManyProducts--title,
+.mine-cart-card-total--title {
   font-weight: 700;
   font-size: 16px;
 }
-.mine-cart-card-howmuch--price, .mine-cart-card-total--price {
+.mine-cart-card-howManyProducts--price,
+.mine-cart-card-total--price {
   color: var(--primary);
   font-family: Nunito;
   font-weight: 800;
   font-size: 24px;
 }
-.mine-cart-card-howmuch--price::after, .mine-cart-card-total--price::after {
-  content: " €";
+.mine-cart-card-howManyProducts--price::after,
+.mine-cart-card-total--price::after {
+  content: ' €';
 }
-.mine-cart-card-howmuch .mine-icon, .mine-cart-card-total .mine-icon {
+.mine-cart-card-howManyProducts .mine-icon,
+.mine-cart-card-total .mine-icon {
   height: 24px;
   width: 24px;
   cursor: pointer;
 }
-.mine-cart-card-howmuch {
+.mine-cart-card-howManyProducts {
   flex-grow: 1;
 }
 .mine-cart-card-separator {
