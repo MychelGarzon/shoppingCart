@@ -116,7 +116,6 @@ export default function CartDialog(
 		return (year + '-' + month + '-' + day + 'T' + hours + ':' + minute)!
 	}
 	
-	/*Event Handling*/
 	function handleOnCloseDialog() {
 		onCloseDialog(false)
 	}
