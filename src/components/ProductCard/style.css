@@ -1,0 +1,55 @@
+@charset "UTF-8";
+.mine-card {
+  box-shadow: var(--md-sys-elevation-6);
+  transition: var(--md-sys-elevation-transition);
+  border-radius: 1rem;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+.mine-card:hover {
+  box-shadow: var(--md-sys-elevation-10);
+}
+.mine-card-img--container {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  /* Establece la relación de aspecto deseada (16:9 en este caso) */
+  padding-top: 100%;
+  box-shadow: var(--md-sys-elevation-1);
+}
+.mine-card-img--container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mine-card-main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+.mine-card-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+.mine-card-description {
+  color: var(--gray);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mine-card-price {
+  color: var(--gray);
+  font-weight: 700;
+  font-size: 24px;
+}
+.mine-card-price::before {
+  content: " €";
+}
+
+/*# sourceMappingURL=style.css.map */

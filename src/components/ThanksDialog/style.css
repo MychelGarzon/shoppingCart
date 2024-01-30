@@ -1,0 +1,48 @@
+.mine-thanksDialog {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  z-index: 30;
+  background-color: rgba(2, 36, 57, 0.6666666667);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5px;
+}
+.mine-thanksDialog--container {
+  box-shadow: var(--md-sys-elevation-12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1208em;
+  height: 678em;
+  background: white;
+  position: absolute;
+  overflow: hidden;
+}
+.mine-thanksDialog-close {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+.mine-thanksDialog img {
+  position: absolute;
+  width: 100%;
+  top: -140em;
+}
+.mine-thanksDialog-text {
+  font-size: 43em;
+  font-family: Nunito;
+  font-weight: 700;
+  color: var(--azulito);
+}
+.mine-thanksDialog-text--name {
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/*# sourceMappingURL=style.css.map */

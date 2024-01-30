@@ -1,0 +1,28 @@
+.mine-button
+  border-radius: 1rem
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 2rem
+  column-gap: 0.5rem
+
+  cursor: pointer
+
+  box-shadow: var(--md-sys-elevation-1)
+  transition-duration: 400ms
+  padding: 0 0.5rem
+
+  &:hover
+    box-shadow: var(--md-sys-elevation-2)
+
+  &.disabled
+    filter: grayscale(50%)
+
+  &-text
+    color: currentColor
+    font-family: Nunito
+    font-weight: 900
+
+  &-prepIcon, &-postIcon
+    color: currentColor
+    height: 50%

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+.mine-detail-dialog {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  z-index: 30;
+  background-color: rgba(2, 36, 57, 0.6666666667);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mine-detail-dialog--container {
+  box-shadow: var(--md-sys-elevation-12);
+  display: flex;
+  width: 50rem;
+  height: 25rem;
+  background: white;
+  padding: 2rem;
+  position: absolute;
+  column-gap: 1rem;
+}
+.mine-detail-dialog--container--right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.mine-detail-dialog--container--right--up {
+  flex-grow: 1;
+}
+.mine-detail-dialog-img {
+  object-fit: cover;
+  height: 100%;
+  width: 21rem;
+  border-radius: 2rem;
+  box-shadow: var(--md-sys-elevation-2);
+}
+.mine-detail-dialog-close {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+.mine-detail-dialog-title {
+  font-size: 42px;
+  font-weight: 900;
+}
+.mine-detail-dialog-price {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: Nunito, "louis george cafe";
+}
+.mine-detail-dialog-price::after {
+  content: " €";
+}
+
+/*# sourceMappingURL=style.css.map */
