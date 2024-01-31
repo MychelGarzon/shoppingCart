@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .mine-cart-card {
   display: flex;
   height: 100px;
@@ -42,7 +41,6 @@
   cursor: pointer;
 }
 .mine-cart-card-price {
-  font-family: Nunito;
   font-weight: 700;
   font-size: 20px;
   color: var(--gray);
@@ -64,7 +62,6 @@
 }
 .mine-cart-card-howManyProducts--count,
 .mine-cart-card-total--count {
-  font-family: Nunito;
   font-weight: 700;
   font-size: 20px;
 }
@@ -76,7 +73,6 @@
 .mine-cart-card-howManyProducts--price,
 .mine-cart-card-total--price {
   color: var(--primary);
-  font-family: Nunito;
   font-weight: 800;
   font-size: 24px;
 }

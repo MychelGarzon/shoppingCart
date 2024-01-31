@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Nunito;
-  src: url('/src/assets/fonts/Nunito-VariableFont_wght.ttf');
-}
-
 :root {
   --sombra-1: rgba(0, 0, 0, 0.2);
   --sombra-2: rgba(0, 0, 0, 0.14);
@@ -175,9 +170,9 @@ html {
   display: block;
   font-size: 16px;
   --blueNavy: #022439;
-  --amarillito: #f8bc02;
+  --yellow: #f8bc02;
   --gray: #707070;
-  --primary: #10beca;
+  --primary: rgb(168, 80, 160);
   --appBarHeight: 60px;
   background-color: var(--blueNavy);
 }
@@ -267,17 +262,6 @@ body > * > * {
   height: 100%;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-input {
-  font-family: Nunito;
-}
-
 #root {
   display: flex;
   justify-content: center;
@@ -302,7 +286,6 @@ input {
   padding: calc(2rem + var(--appBarHeight)) 4rem 2rem;
 }
 
-/*padding-top: var(--appBarHeight)*/
 .imageHeader {
   overflow: hidden;
   width: 100%;
@@ -339,5 +322,3 @@ input {
     grid-template-columns: 1fr;
   }
 }
-
-/*# sourceMappingURL=App.css.map */

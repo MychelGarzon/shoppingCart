@@ -24,7 +24,6 @@ header > div > div {
   align-items: center;
 }
 header .logo span {
-  font-family: Nunito;
   font-size: 26px;
   font-weight: 900;
 }
@@ -85,10 +84,9 @@ header .kartIcon .notchInvisibleContainer > div {
   position: relative;
   left: -8px;
   top: -8px;
-  background-color: var(--amarillito);
+  background-color: var(--yellow);
 }
 header .kartIcon .notchInvisibleContainer > div > span {
-  font-family: Nunito;
   font-size: 10px;
   font-weight: 700;
 }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .mine-cart-dialog {
   position: fixed;
   height: 100vh;
@@ -95,7 +94,6 @@
 .mine-cart-dialog-sending-data-body--right,
 .mine-cart-dialog-sending-calc-body input,
 .mine-cart-dialog-sending-calc-body--right {
-  font-family: Nunito;
   font-weight: 700;
 }
 .mine-cart-dialog-sending-data-body input.distance,
