@@ -1,6 +1,6 @@
 @font-face {
   font-family: Nunito;
-  src: url('res/fonts/Nunito-VariableFont_wght.ttf');
+  src: url('/src/assets/fonts/Nunito-VariableFont_wght.ttf');
 }
 
 :root {
@@ -170,7 +170,6 @@ html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   height: 100vh;
-  /*overflow-y: scroll*/
   touch-action: manipulation;
   font-family: 'louis george cafe', sans-serif;
   display: block;
