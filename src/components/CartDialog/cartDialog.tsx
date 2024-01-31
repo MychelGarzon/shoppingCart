@@ -102,24 +102,21 @@ useEffect(() => {
 		
 	}, [totalProductsState, sendingPriceState]);
 	
-	const initialStringDate = ():string => {
-		let date
-		
-		if (!datetimeState) {
-			date = new Date()
-		} else {
-			date = datetimeState
-		}
-		
-		const year = "" + date.getFullYear();
-		const month = ('0' + (date.getMonth() + 1)).slice(-2);
-		const day = ('0' + date.getDate()).slice(-2)
-		const hours = ('0' + date.getHours()).slice(-2)
-		const minute = ('0' + date.getMinutes()).slice(-2)
-		
-		return (year + '-' + month + '-' + day + 'T' + hours + ':' + minute)!
-	}
-	
+const initialStringDate = (): string => {
+  const date = datetimeState ?? new Date();
+  return (
+    date.getFullYear() +
+    "-" +
+    ("0" + (date.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + date.getDate()).slice(-2) +
+    "T" +
+    ("0" + date.getHours()).slice(-2) +
+    ":" +
+    ("0" + date.getMinutes()).slice(-2)
+  );
+};
+
 	
 	function handleOnCloseDialog() {
 		onCloseDialog(false)
@@ -229,7 +226,7 @@ useEffect(() => {
 									isOverSendingPriceState ?
 										<>
 											<p className="mine-cart-dialog-sending-calc-body--left">Discount:</p>
-											<p className="descuento price mine-cart-dialog-sending-calc-body--right">{overCostDiscountState.toFixed(2)}</p>
+											<p className="discount price mine-cart-dialog-sending-calc-body--right">{overCostDiscountState.toFixed(2)}</p>
 										</>
 										:
 										<></>
@@ -238,7 +235,7 @@ useEffect(() => {
 								{
 									productsPriceDiscountState?
 										<><p className="mine-cart-dialog-sending-calc-body--left">Discount if the cost is over 200 €:</p>
-											<p className="descuento price mine-cart-dialog-sending-calc-body--right">{productsPriceDiscountState}</p></>
+											<p className="discount price mine-cart-dialog-sending-calc-body--right">{productsPriceDiscountState}</p></>
 										:
 										<></>
 								}

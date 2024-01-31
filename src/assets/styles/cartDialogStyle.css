@@ -119,8 +119,8 @@
 .mine-cart-dialog-sending-calc-body .price::after {
   content: ' €';
 }
-.mine-cart-dialog-sending-data-body .descuento::before,
-.mine-cart-dialog-sending-calc-body .descuento::before {
+.mine-cart-dialog-sending-data-body .discount::before,
+.mine-cart-dialog-sending-calc-body .discount::before {
   content: '-';
 }
 .mine-cart-dialog-totals {
