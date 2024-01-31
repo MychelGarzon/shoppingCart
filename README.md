@@ -1,5 +1,7 @@
 # Delivery Fee Calculator
 
+This App was build using React and TypeScript.
+
 # Install dependencies
 
 ```
@@ -34,4 +36,4 @@ Maximum Fee Limit: The delivery fee cannot exceed 15€, including possible Extr
 
 Free Delivery: The delivery is free (0€) when the cart value is equal to or more than 200€.
 
-Friday Rush: During the Friday rush (3 - 7 PM UTC), the delivery fee is multiplied by 1.2x, but the fee cannot exceed the maximum limit.
+Friday Rush: During the Friday rush (3 - 7 PM UTC), the delivery fee is multiplied by 1.2x.

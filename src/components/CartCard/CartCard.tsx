@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function CartCard(props: CartCardPropsInterface) {
   const [numProductsState, setNumProductsState] = useState(0);
-
+  
   const handleRemoveFromCart = () => {
     setNumProductsState(props.onRemoveFromCart(props.cartProduct));
   };

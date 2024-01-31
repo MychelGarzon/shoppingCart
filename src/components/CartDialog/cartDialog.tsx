@@ -230,22 +230,22 @@ export default function CartDialog({
 
               <div className="mine-cart-dialog-sending-calc-body">
                 <p className="mine-cart-dialog-sending-calc-body--left">Extra-cost distance:</p>
-                <p className="price mine-cart-dialog-sending-calc-body--right" data-testid="distanceSurcharge">
+                <p className="price-mine-cart-dialog-sending-calc-body--right" data-testid="distanceSurcharge">
                   {deliveryDistanceState.toFixed(2)}
                 </p>
 
                 <p className="mine-cart-dialog-sending-calc-body--left">Extra-cost number of items:</p>
-                <p className="price mine-cart-dialog-sending-calc-body--right" data-testid="numOfItemsSurcharge">
+                <p className="price-mine-cart-dialog-sending-calc-body--right" data-testid="numOfItemsSurcharge">
                   {extraChargeNumberOfItems.toFixed(2)}
                 </p>
 
                 <p className="mine-cart-dialog-sending-calc-body--left">Extra-cost time of delivery:</p>
                 {orderingTime ? (
-                  <p className="price mine-cart-dialog-sending-calc-body--right">
+                  <p className="price-mine-cart-dialog-sending-calc-body--right">
                     {extraChargeTimeDelivery.toFixed(2)}
                   </p>
                 ) : (
-                  <p className="price mine-cart-dialog-sending-calc-body--right">0</p>
+                  <p className="price-mine-cart-dialog-sending-calc-body--right">0</p>
                 )}
 
                 {productsPriceDiscountState ? (
@@ -253,7 +253,7 @@ export default function CartDialog({
                     <p className="mine-cart-dialog-sending-calc-body--left">
                       Discount if the cost is over 200 €:
                     </p>
-                    <p className="discount price mine-cart-dialog-sending-calc-body--right">
+                    <p className="discount-price-mine-cart-dialog-sending-calc-body--right">
                       {productsPriceDiscountState}
                     </p>
                   </>
@@ -262,7 +262,7 @@ export default function CartDialog({
                 )}
 
                 <p className="mine-cart-dialog-sending-calc-body--left">Small order Extra-cost:</p>
-                <p className="price mine-cart-dialog-sending-calc-body--right" data-testid="smallOrderSurcharge">
+                <p className="price-mine-cart-dialog-sending-calc-body--right" data-testid="smallOrderSurcharge">
                   {smallOrderSurcharge.toFixed(2)}
                 </p>
               </div>
