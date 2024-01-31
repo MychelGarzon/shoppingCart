@@ -2,18 +2,7 @@
   font-family: Nunito;
   src: url('res/fonts/Nunito-VariableFont_wght.ttf');
 }
-/*@font-face
- *  font-family: Nunito
- *  src: url('res/fonts/NunitoSans-Regular.ttf')
- *  font-weight: 400 */
-/*@font-face
- *  font-family: Nunito
- *  src: url("res/fonts/NunitoSans-Black.ttf")
- *  font-weight: 700 */
-/*@font-face
- *  font-family: Nunito
- *  src: url("res/fonts/NunitoSans-Black.ttf")
- *  font-weight: 800 */
+
 :root {
   --sombra-1: rgba(0, 0, 0, 0.2);
   --sombra-2: rgba(0, 0, 0, 0.14);
@@ -269,16 +258,6 @@ a {
   color: inherit;
 }
 
-/*a.a--normal
- *  color: var(--md-sys-color-secondary)
- *  text-decoration: underline */
-/*a.a--normal:hover
- *  color: var(--md-sys-color-tertiary) */
-/*body
- *  -moz-osx-font-smoothing: grayscale
- *  -webkit-font-smoothing: antialiased
- *  background-color: var(--color-background-background)
- *  display: block */
 body div[id='contenedor_principal'] ~ div {
   display: none;
 }

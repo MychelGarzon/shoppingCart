@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor} from "@testing-library/react";
-import CartDialog from "./cartDialog";
-import {OnCartProductInterface} from "../../App";
+import CartDialog from "../components/CartDialog/cartDialog";
+import {OnCartProductInterface} from "../App";
 import {expect, test} from "vitest";
 
 
@@ -45,8 +45,8 @@ describe("<CartDialog />", () => {
 		
 		
 		const element_userNameInput = rootElement.getByTestId("userNameInput")
-		fireEvent.change(element_userNameInput, {target: {value: "Javier Vergara"}})
-		expect((element_userNameInput as HTMLInputElement).value).toBe("Javier Vergara");
+		fireEvent.change(element_userNameInput, {target: {value: "Mychel Garzon"}})
+		expect((element_userNameInput as HTMLInputElement).value).toBe("Mychel Garzon");
 	})
 
 	test("Check the distance input", async () => {

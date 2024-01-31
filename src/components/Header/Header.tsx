@@ -2,7 +2,7 @@ import {MouseEventHandler} from 'react'
 import '../../assets/styles/headerStyle.css'
 import logo from './../../assets/images/img/svg/logo.svg'
 import Icon from "../Icon/Icon";
-import {cartShopping_classic_regular, magnifyingGlass_classic_regular} from "../../fragments/icons";
+import {cartShopping_classic_regular, magnifyingGlass_classic_regular} from "../../assets/icons/icons";
 
 export default function Header(props: HeaderPropsInterface) {
 
@@ -21,7 +21,7 @@ export default function Header(props: HeaderPropsInterface) {
 						<div className='icon'>
 							<Icon icon={magnifyingGlass_classic_regular} style={{height: "60%"}}/>
 						</div>
-						<div className='input'><input type="text" placeholder='Filtrar' onChange={event => props.onFilterProducts(event.target.value)}/></div>
+						<div className='input'><input type="text" placeholder='Search your favourite' onChange={event => props.onFilterProducts(event.target.value)}/></div>
 					</div>
 				</div>
 				

@@ -1,7 +1,7 @@
 import "../../assets/styles/cartDialogStyle.css"
 import {useEffect, useState} from "react";
 import Icon from "../Icon/Icon";
-import {xMark_classic_regular} from "../../fragments/icons";
+import {xMark_classic_regular} from "../../assets/icons/icons";
 import {OnCartProductInterface, ProductInterface} from "../../App";
 import CartCard from "../CartCard/CartCard";
 import Button from "../Button/Button";
@@ -19,15 +19,19 @@ export default function CartDialog(
 	const [distanceState, setDistanceState] = useState(0)
 	const [datetimeState, setDatetimeState] = useState(():Date|undefined => {return ;})
 	
-	const [orderingTime, setorderingTime] = useState(():boolean|undefined => {return })
-	useEffect(() => {
-		if (datetimeState === undefined) {setorderingTime(undefined); return }
-		
-		const isItFriday = datetimeState.toLocaleDateString("en-en",{weekday: "long"}) === "friday"
-		const isOnTime = datetimeState.getHours() >= 15 && datetimeState.getHours() < 19
-		
-		setorderingTime(isItFriday && isOnTime)
-	}, [datetimeState]);
+	
+	const [orderingTime, setOrderingTime] = useState<boolean | undefined>(undefined);
+useEffect(() => {
+  if (datetimeState === undefined) {
+    setOrderingTime(undefined);
+    return;
+  }
+
+  const isItFriday = datetimeState.toLocaleDateString("en-US", { weekday: "long" }) === "Friday";
+  const isOnTime = datetimeState.getHours() >= 15 && datetimeState.getHours() < 19;
+
+  setOrderingTime(isItFriday && isOnTime);
+}, [datetimeState]);
 	
 	const [totalProductsState, setTotalProductsState] = useState(0)
 	useEffect(() => {
@@ -116,7 +120,7 @@ export default function CartDialog(
 		return (year + '-' + month + '-' + day + 'T' + hours + ':' + minute)!
 	}
 	
-	/*Event Handling*/
+	
 	function handleOnCloseDialog() {
 		onCloseDialog(false)
 	}
@@ -208,15 +212,15 @@ export default function CartDialog(
 							
 							<div className="mine-cart-dialog-sending-calc-body">
 								<p className="mine-cart-dialog-sending-calc-body--left">Extra-cost distance:</p>
-								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="distanceSurcharge">{deliveryDistanceState}</p>
+								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="distanceSurcharge">{deliveryDistanceState.toFixed(2)}</p>
 								
 								<p className="mine-cart-dialog-sending-calc-body--left">Extra-cost number of items:</p>
-								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="numOfItemsSurcharge">{extraChargeNumberOfItems}</p>
+								<p className="price mine-cart-dialog-sending-calc-body--right" data-testid="numOfItemsSurcharge">{extraChargeNumberOfItems.toFixed(2)}</p>
 								
 								<p className="mine-cart-dialog-sending-calc-body--left">Extra-cost time of delivery:</p>
 								{
 										orderingTime?
-										<p className="price mine-cart-dialog-sending-calc-body--right">{extraChargeTimeDelivery}</p>
+										<p className="price mine-cart-dialog-sending-calc-body--right">{extraChargeTimeDelivery.toFixed(2)}</p>
 											:
 												<p className="price mine-cart-dialog-sending-calc-body--right">0</p>
 								}
@@ -225,7 +229,7 @@ export default function CartDialog(
 									isOverSendingPriceState ?
 										<>
 											<p className="mine-cart-dialog-sending-calc-body--left">Discount:</p>
-											<p className="descuento price mine-cart-dialog-sending-calc-body--right">{overCostDiscountState}</p>
+											<p className="descuento price mine-cart-dialog-sending-calc-body--right">{overCostDiscountState.toFixed(2)}</p>
 										</>
 										:
 										<></>
@@ -242,13 +246,13 @@ export default function CartDialog(
 						</div>
 						
 						<div className="mine-cart-dialog-totals">
-							<p>Cost of the products: <span data-testid="cartPriceSpan">{totalProductsState}</span></p>
+							<p>Cost of the products: <span data-testid="cartPriceSpan">{totalProductsState.toFixed(2) + " €"}</span></p>
 							
 							<p>Delivery costs: <span data-testid="sendingPrice">{
-								sendingPriceState-productsPriceDiscountState
-							}</span></p>
+								(sendingPriceState-productsPriceDiscountState).toFixed(2)
+							+ " €"}</span></p>
 							
-							<p className="total">Total: <span data-testid="totalPrice">{totalPriceState}</span></p>
+							<p className="total">Total: <span data-testid="totalPrice">{totalPriceState.toFixed(2) + " €"} </span></p>
 							
 							<div  className="mine-cart-dialog-totals-buttons">
 								<Button

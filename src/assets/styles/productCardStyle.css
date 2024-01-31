@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .mine-card {
   box-shadow: var(--md-sys-elevation-6);
   transition: var(--md-sys-elevation-transition);

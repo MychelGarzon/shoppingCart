@@ -1,8 +1,6 @@
 import "../../assets/styles/thanksDialogStyle.css"
-
-import {xMark_classic_regular} from "../../fragments/icons";
+import {xMark_classic_regular} from "../../assets/icons/icons";
 import Icon from "../Icon/Icon";
-
 import backImage from "./../../assets/images/img/svg/groupOfPersons.svg"
 
 export default function ThanksDialog({onCloseDialog, userName}:ThanksDialogPropsInterface) {

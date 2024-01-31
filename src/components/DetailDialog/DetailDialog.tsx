@@ -2,7 +2,7 @@ import "../../assets/styles/detailDialogStyle.css"
 import Icon from "../Icon/Icon";
 import {
 	xMark_classic_regular
-} from "../../fragments/icons";
+} from "../../assets/icons/icons";
 import {ProductInterface, ProductToShowInterface} from "../../App";
 import ButtonToCart from "../ButtonToCart/ButtonToCart";
 
