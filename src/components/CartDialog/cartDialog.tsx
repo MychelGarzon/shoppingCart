@@ -261,7 +261,7 @@ export default function CartDialog({
                   <></>
                 )}
 
-                <p className="mine-cart-dialog-sending-calc-body--left">Small order surcharge:</p>
+                <p className="mine-cart-dialog-sending-calc-body--left">Small order Extra-cost:</p>
                 <p className="price mine-cart-dialog-sending-calc-body--right" data-testid="smallOrderSurcharge">
                   {smallOrderSurcharge.toFixed(2)}
                 </p>

@@ -114,41 +114,43 @@ describe("<CartDialog />", () => {
 		expect(parseInt(element_cartPriceSpan.textContent!)).toEqual(20)
 	})
 
-	test("Check distance surcharge", async () => {
+	test("Check distance Extra-Cost", async () => {
 		const rootElement = render(
 			<CartDialog
 				onCloseDialog={() => {}}
 				cartProducts={products}
-				onRemoveProduct={() => { }}
-				onAddProduct={() => { }}
+				onRemoveProduct={() => {}}
+				onAddProduct={() => {}}
 				numOfProducts={4}
-				onPay={() => { }} />
-		)
-		
-		const element_distanceInput = rootElement.getByTestId("distanceInput")
-		const element_distanceSurcharge = rootElement.getByTestId("distanceSurcharge")
-		
-		fireEvent.change(element_distanceInput, {target: {value: "2235"}})
-		
+				onPay={() => {}}
+			/>
+		);
+	
+		const element_distanceInput = rootElement.getByTestId("distanceInput");
+		const element_distanceExtra_Cost = rootElement.getByTestId("distanceExtra-Cost");
+	
+		fireEvent.change(element_distanceInput, { target: { value: "2235" } });
+	
 		await waitFor(() => {
-			expect(parseInt(element_distanceSurcharge.textContent!)).toBe(5)
-		})
-	})
-
-	test("Check number of items surcharge", () => {
+			expect(parseInt(element_distanceExtra_Cost.textContent!)).toBe(5);
+		});
+	});
+	
+	test("Check number of items Extra-Cost", () => {
 		const rootElement = render(
 			<CartDialog
 				onCloseDialog={() => {}}
 				cartProducts={products}
-				onRemoveProduct={() => { }}
-				onAddProduct={() => { }}
+				onRemoveProduct={() => {}}
+				onAddProduct={() => {}}
 				numOfProducts={4}
-				onPay={() => { }} />
-		)
-		const element_numOfItemsSurcharge = rootElement.getByTestId("numOfItemsSurcharge")
-		expect(parseInt(element_numOfItemsSurcharge.textContent!)).toEqual(0)
-	})
-
+				onPay={() => {}}
+			/>
+		);
+		const element_numOfItemsExtra_Cost = rootElement.getByTestId("numOfItemsExtra-Cost");
+		expect(parseInt(element_numOfItemsExtra_Cost.textContent!)).toEqual(0);
+	});
+	
 	test("Check the sending price", async () => {
 		const rootElement = render(
 			<CartDialog

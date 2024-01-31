@@ -1,6 +1,6 @@
 import {MouseEventHandler} from 'react'
 import '../../assets/styles/headerStyle.css'
-import logo from './../../assets/images/img/svg/logo.svg'
+import logo from './../../assets/icons/favicon-32x32.png'
 import Icon from "../Icon/Icon";
 import {cartShopping_classic_regular, magnifyingGlass_classic_regular} from "../../assets/icons/icons";
 
