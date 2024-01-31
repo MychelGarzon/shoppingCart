@@ -10,7 +10,7 @@
         "id": 2,
         "name": "Asparagus",
         "src": "asparagus.jpg",
-        "price": 3.50,
+        "price": 3.58,
         "description": "Tender and flavorful, our asparagus is a versatile vegetable that adds a touch of elegance to any dish."
     },
     {
@@ -115,21 +115,21 @@
         "id": 17,
         "name": "Raspberries",
         "src": "raspberries.jpg",
-        "price": 2.00,
+        "price": 2.15,
         "description": "Sweet and delicate, our raspberries are a delightful addition to desserts, breakfast bowls, or as a simple snack."
     },
     {
         "id": 18,
         "name": "Shimiji",
         "src": "shimiji.jpg",
-        "price": 6.20,
+        "price": 6.25,
         "description": "Delicate and aromatic, our shimiji mushrooms add a gourmet touch to your culinary creations, perfect for stir-fries or soups."
     },
     {
         "id": 19,
         "name": "Strawberries",
         "src": "strawberries.jpg",
-        "price": 4.20,
+        "price": 4.25,
         "description": "Sweet and succulent, our strawberries are a classic favorite, perfect for desserts, salads, or enjoying on their own."
     },
     {

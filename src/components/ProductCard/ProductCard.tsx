@@ -25,10 +25,11 @@ export default function ProductCard(props: ProductCardPropsInterface) {
 						{props.productData.name}
 					</h2>
 					
+					
 					<p
 						onClick={() => props.onDetailClick(props.productData)}
 						className={"mine-card-description"}>
-						details...
+						Info...
 					</p>
 				</div>
 				
@@ -36,6 +37,7 @@ export default function ProductCard(props: ProductCardPropsInterface) {
 					<p className={"mine-card-price"}>
 						{props.productData.price}
 					</p>
+					<p>Price/Kg </p>
 					
 					<ButtonToCart
 						onAddToCart={handleOnButtonClick}
