@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import headerImage from './assets/images/background.jpg'
-import mainProducts from './assets/json/productsInfo.json'
+import mainProducts from './assets/data/productsInfo.ts'
 import Header from "./components/Header/Header";
 import ProductCard from "./components/ProductCard/ProductCard";
 import CartDialog from "./components/CartDialog/cartDialog";
@@ -148,22 +148,27 @@ export default function App() {
       />
       
       <div>
-        <main>
-          <div className='imageHeader'><img alt="imageLogo" src={headerImage}></img></div>
-          
-          <div>
+    <main>
+        <div className='imageHeader'>
+            <img alt="imageLogo" src={headerImage} />
+        </div>
+
+        <div>
             <div className={"productsGrid"}>
-              {filteredProductsState.map((product: ProductInterface) =>
-                <ProductCard
-                  onAddProduct={handleOnAddProduct}
-                  onRemoveProduct={handleOnRemoveProduct}
-                  onDetailClick={(p: ProductToShowInterface) => setProductDetailState(p)}
-                  productData={product} key={product.id}
-                />)}
+                {filteredProductsState.map((product: ProductInterface) => (
+                    <ProductCard
+                        onAddProduct={handleOnAddProduct}
+                        onRemoveProduct={handleOnRemoveProduct}
+                        onDetailClick={(p: ProductToShowInterface) => setProductDetailState(p)}
+                        productData={product}
+                        key={product.id} // Ensure unique keys for React
+                    />
+                ))}
             </div>
-          </div>
-        </main>
-      </div>
+        </div>
+    </main>
+</div>
+
       
       {isCartOpenState ?
         <CartDialog

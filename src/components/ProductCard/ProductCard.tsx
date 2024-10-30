@@ -16,7 +16,7 @@ export default function ProductCard(props: ProductCardPropsInterface) {
 	return (
 		<div className="mine-card">
 			<div className="mine-card-img--container">
-				<img src={`/src//assets/images/products/${props.productData.src}`}/>
+			<img src={props.productData.src} alt={props.productData.name} />
 			</div>
 			
 			<div className={"mine-card-main"}>

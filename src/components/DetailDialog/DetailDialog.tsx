@@ -18,9 +18,12 @@ export default function DetailDialog(props: CartDialogPropsInterface) {
 					className="mine-detail-dialog-close"
 					onClick={() => props.onCloseDialog()}/>
 				
-				<img className="mine-detail-dialog-img" src={`/src/assets/images/products/${props.productDetail?.src}`}/>
-			
-				
+				<img 
+					className="mine-detail-dialog-img" 
+					src={props.productDetail?.src} 
+					alt={props.productDetail?.name} 
+				/>			
+
 				<div className="mine-detail-dialog--container--right">
 					<div className="mine-detail-dialog--container--right--up">
 						<h1 className="mine-detail-dialog-title">{props.productDetail?.name}</h1>
